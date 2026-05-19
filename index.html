@@ -1,264 +1,369 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AURA XI — Football as Cinema</title>
-<link rel="icon" type="image/png" href="logo.png">
-  
-<meta name="description" content="AURA XI — Football as Cinema. World Cup stories, cinematic content, and an immersive penalty challenge." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
-<!-- Conexão com o arquivo CSS -->
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>AURA XI — Football as Cinema</title>
+  <meta name="description" content="AURA XI — site link moderno com vídeo, botões e jogo de pênaltis 3D responsivo." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <div class="page-frame" aria-hidden="true"></div>
 
-<div class="frame"></div>
+  <!-- NAVBAR -->
+  <nav class="topbar" aria-label="Navegação principal">
+    <a class="brand" href="#top" aria-label="AURA XI início">
+      <span>AURA</span> XI
+    </a>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">AURA XI</div>
-  <div class="nav-links">
-    <a href="#top">Início</a>
-    <a href="#game">Jogo</a>
-    <a href="#drops">Drops</a>
-  </div>
-  <a href="https://youtube.com" target="_blank" rel="noopener" class="nav-cta">YouTube →</a>
-</nav>
-
-<!-- HERO -->
-<header class="hero" id="top">
-  <div class="hero-bg"></div>
-
-  <div class="live-badge"><i class="live-dot"></i> Live Hub</div>
-
-  <!-- Logo Slot — troque a src para sua logo real -->
-  <div class="logo-slot" id="logoSlot">
-    <div class="logo-slot-placeholder">XI</div>
-    <div class="logo-upload-hint" id="logoHint">
-      Trocar logo
+    <div class="nav-links">
+      <a href="#top">Início</a>
+      <a href="#game">Jogo</a>
+      <a href="#drops">Drops</a>
     </div>
-    <input type="file" id="logoInput" accept="image/*" style="display:none">
-  </div>
 
-  <p class="hero-eyebrow">World Cup Stories · Football Culture · Legacy</p>
-  <h1 class="hero-title">AURA XI</h1>
-  <p class="hero-sub"><strong>Football as Cinema.</strong> Onde a pressão vira lenda.</p>
+    <a class="nav-cta" href="https://youtube.com" target="_blank" rel="noopener">
+      YouTube →
+    </a>
+  </nav>
 
-  <!-- VIDEO EMBUTIDO — primeira seção, antes dos links -->
-  <div style="width:min(700px,100%);margin:32px auto 0;position:relative;z-index:1;">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
-      <div>
-        <p style="font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Último Vídeo</p>
-        <p style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;text-transform:uppercase;">Em Destaque</p>
-      </div>
-      <div style="display:flex;gap:8px;align-items:center;">
-        <input id="ytInput" type="text" placeholder="ID do YouTube…"
-          style="padding:7px 12px;border-radius:10px;border:1px solid rgba(201,150,59,.3);
-          background:rgba(0,0,0,.5);color:#f7f3ea;font-size:.78rem;outline:none;width:160px;" />
-        <button onclick="loadYT()" style="padding:7px 12px;border-radius:10px;
-          background:rgba(201,150,59,.18);border:1px solid rgba(201,150,59,.5);
-          color:#f0c96a;font-size:.78rem;cursor:pointer;white-space:nowrap;">▶ Carregar</button>
-      </div>
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="live-badge">
+      <i></i>
+      Live Hub
     </div>
-    <div id="mainVideoWrap" style="width:100%;aspect-ratio:16/9;border-radius:18px;overflow:hidden;
-      border:1px solid rgba(201,150,59,.28);background:#030303;
-      box-shadow:0 24px 60px rgba(0,0,0,.7),0 0 40px rgba(201,150,59,.12);">
-      <!-- Vídeo padrão embutido — troque o ID abaixo pelo seu -->
-      <iframe id="mainIframe"
-        src="https://www.youtube.com/embed/WoqRfUVX3mM?rel=0&modestbranding=1"
-        style="width:100%;height:100%;border:none;display:block;"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
-  </div>
 
-  <!-- LINKS -->
-  <div class="links-wrap">
-    <a class="link-btn" href="#top">
-      <span class="btn-icon">▶</span>
-      <span class="btn-text"><b>Assistir Vídeo</b><small>Curtas cinematográficos e histórias da Copa.</small></span>
-      <span class="btn-arrow">→</span>
-    </a>
-    <a class="link-btn" href="#game">
-      <span class="btn-icon">⚽</span>
-      <span class="btn-text"><b>Penalty Challenge</b><small>Escolha seu estilo, mire e chute. Desbloqueie sua aura.</small></span>
-      <span class="btn-arrow">→</span>
-    </a>
-    <a class="link-btn" href="https://youtube.com" target="_blank" rel="noopener">
-      <span class="btn-icon">📺</span>
-      <span class="btn-text"><b>YouTube Channel</b><small>Substitua pelo seu canal oficial.</small></span>
-      <span class="btn-arrow">→</span>
-    </a>
-    <a class="link-btn" href="https://instagram.com" target="_blank" rel="noopener">
-      <span class="btn-icon">📸</span>
-      <span class="btn-text"><b>Instagram</b><small>Cards, covers, edits e bastidores.</small></span>
-      <span class="btn-arrow">→</span>
-    </a>
-    <a class="link-btn" href="https://tiktok.com" target="_blank" rel="noopener">
-      <span class="btn-icon">🔥</span>
-      <span class="btn-text"><b>TikTok</b><small>Cinema rápido para momentos virais.</small></span>
-      <span class="btn-arrow">→</span>
-    </a>
-    <button class="share-btn" id="shareBtn">
-      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-      Compartilhar esta página
+    <!-- LOGO -->
+    <button class="logo-slot" id="logoSlot" type="button" aria-label="Trocar logo">
+      <span class="logo-mark">XI</span>
+      <span class="logo-hint">Trocar logo</span>
+      <input type="file" id="logoInput" accept="image/*" hidden />
     </button>
-  </div>
-</header>
 
-<div class="divider" style="max-width:1160px;margin:0 auto;"></div>
+    <p class="eyebrow">
+      World Cup Stories · Football Culture · Legacy
+    </p>
 
-<!-- GAME -->
-<section id="game">
-  <div class="section-head">
-    <p class="kicker">Mini Jogo Interativo</p>
-    <h2 class="section-title">Penalty Challenge</h2>
-    <p class="section-desc">Físicas reais, goleiro inteligente e 4 níveis de dificuldade. Quanto mais alto o nível, menos espaço você tem.</p>
-  </div>
+    <h1>AURA XI</h1>
 
-  <div class="game-container">
-    <!-- HUD -->
-    <div class="game-hud">
-      <div class="hud-stat">
-        <label>Gols</label>
-        <span id="hudScore">0</span>
-      </div>
-      <div class="hud-divider"></div>
-      <div class="hud-stat">
-        <label>Tentativas</label>
-        <span id="hudAttempts">0</span>
-      </div>
-      <div class="hud-divider"></div>
-      <div class="hud-stat">
-        <label>Série</label>
-        <span id="hudStreak">0</span>
-      </div>
-      <div class="hud-divider"></div>
-      <div class="hud-aura" id="hudAura">Rookie</div>
-      <div class="hud-divider"></div>
-      <div class="hud-stat">
-        <label>Precisão</label>
-        <span id="hudAccuracy">—</span>
-      </div>
-    </div>
+    <p class="hero-sub">
+      <strong>Football as Cinema.</strong> Onde a pressão vira lenda.
+    </p>
 
-    <!-- Difficulty -->
-    <div class="diff-row">
-      <button class="diff-btn active" data-diff="base">🟢 Base</button>
-      <button class="diff-btn" data-diff="jogador">🔵 Jogador</button>
-      <button class="diff-btn" data-diff="craque">🟠 Craque</button>
-      <button class="diff-btn" data-diff="lenda">🔴 Lenda</button>
-    </div>
-
-    <!-- Body -->
-    <div class="game-body">
-      <div class="pitch-wrap">
-        <canvas id="pitchCanvas"></canvas>
-      </div>
-
-      <div class="game-panel">
-        <!-- Player -->
+    <!-- VÍDEO PRINCIPAL -->
+    <div class="featured-video">
+      <div class="video-head">
         <div>
-          <span class="panel-label">Jogador</span>
-          <div class="player-grid" id="playerGrid">
-            <button class="player-btn active" data-player="neymar">Neymar<span>Flair</span></button>
-            <button class="player-btn" data-player="cr7">CR7<span>Power</span></button>
-            <button class="player-btn" data-player="mbappe">Mbappé<span>Speed</span></button>
-            <button class="player-btn" data-player="vini">Vini Jr<span>Wild</span></button>
-            <button class="player-btn" data-player="yamal">Yamal<span>Ice</span></button>
-            <button class="player-btn" data-player="haaland">Haaland<span>Brute</span></button>
-          </div>
+          <span>Último vídeo</span>
+          <h2>Em Destaque</h2>
         </div>
 
-        <!-- Foot -->
-        <div>
-          <span class="panel-label">Pé dominante</span>
-          <div class="foot-row" id="footRow">
-            <button class="toggle-btn active" data-foot="left">Esquerdo</button>
-            <button class="toggle-btn" data-foot="right">Direito</button>
-          </div>
-        </div>
+        <form class="yt-form" id="ytForm">
+          <input
+            id="ytInput"
+            type="text"
+            placeholder="Cole ID ou link do YouTube"
+            autocomplete="off"
+          />
+          <button type="submit">Carregar</button>
+        </form>
+      </div>
 
-        <!-- Aim -->
-        <div>
-          <span class="panel-label">Mira</span>
-          <div class="aim-grid" id="aimGrid">
-            <button class="aim-btn" data-aim="tl">↖</button>
-            <button class="aim-btn" data-aim="tc">↑</button>
-            <button class="aim-btn" data-aim="tr">↗</button>
-            <button class="aim-btn" data-aim="ml">←</button>
-            <button class="aim-btn active" data-aim="mc">·</button>
-            <button class="aim-btn" data-aim="mr">→</button>
-            <button class="aim-btn" data-aim="bl">↙</button>
-            <button class="aim-btn" data-aim="bc">↓</button>
-            <button class="aim-btn" data-aim="br">↘</button>
-          </div>
-        </div>
-
-        <!-- Power -->
-        <div class="power-wrap">
-          <span class="panel-label">Potência</span>
-          <div class="power-track" id="powerTrack">
-            <div class="power-fill" id="powerFill" style="width:70%"></div>
-          </div>
-          <div class="power-label"><span>Suave</span><span id="powerVal">70%</span><span>Máx</span></div>
-        </div>
-
-        <!-- Streak -->
-        <div class="streak-badge">
-          <span>Série atual:</span>
-          <strong id="streakBadge">0</strong>
-          <span>| Melhor:</span>
-          <strong id="bestStreak">0</strong>
-        </div>
-
-        <!-- Result -->
-        <div class="result-msg" id="resultMsg">Escolha seu jogador, pé, mira e potência. Depois chute.</div>
-
-        <!-- Shoot -->
-        <button class="shoot-btn" id="shootBtn">CHUTAR</button>
+      <div class="video-box" id="mainVideoWrap">
+        <iframe
+          id="mainIframe"
+          src="https://www.youtube.com/embed/WoqRfUVX3mM?rel=0&modestbranding=1"
+          title="Vídeo em destaque"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
-  </div>
-</section>
 
-<div class="divider" style="max-width:1160px;margin:0 auto;"></div>
+    <!-- LINKS -->
+    <div class="links-wrap" aria-label="Links principais">
+      <a class="link-btn" href="#top">
+        <span class="btn-icon">▶</span>
+        <span>
+          <b>Assistir vídeo</b>
+          <small>Curtas cinematográficos e histórias da Copa.</small>
+        </span>
+        <em>→</em>
+      </a>
 
-<!-- DROPS -->
-<section id="drops">
-  <div class="section-head">
-    <p class="kicker">Monetização & Comunidade</p>
-    <h2 class="section-title">Collector Drops</h2>
-    <p class="section-desc">Use esta área para lançamentos de produtos quando seu canal decolar.</p>
-  </div>
-  <div class="cards-grid">
-    <div class="drop-card">
-      <span class="drop-tag">Digital</span>
-      <h3>Legacy Cards</h3>
-      <p>Cards premium de jogadores, tabelas de grupo e wallpapers cinematográficos.</p>
+      <a class="link-btn" href="#game">
+        <span class="btn-icon">⚽</span>
+        <span>
+          <b>Penalty Challenge</b>
+          <small>Escolha estilo, mira, potência e chute.</small>
+        </span>
+        <em>→</em>
+      </a>
+
+      <a class="link-btn" href="https://youtube.com" target="_blank" rel="noopener">
+        <span class="btn-icon">📺</span>
+        <span>
+          <b>YouTube Channel</b>
+          <small>Substitua pelo seu canal oficial.</small>
+        </span>
+        <em>→</em>
+      </a>
+
+      <a class="link-btn" href="https://instagram.com" target="_blank" rel="noopener">
+        <span class="btn-icon">📸</span>
+        <span>
+          <b>Instagram</b>
+          <small>Cards, covers, edits e bastidores.</small>
+        </span>
+        <em>→</em>
+      </a>
+
+      <a class="link-btn" href="https://tiktok.com" target="_blank" rel="noopener">
+        <span class="btn-icon">🔥</span>
+        <span>
+          <b>TikTok</b>
+          <small>Cinema rápido para momentos virais.</small>
+        </span>
+        <em>→</em>
+      </a>
+
+      <button class="share-btn" id="shareBtn" type="button">
+        Compartilhar esta página
+      </button>
     </div>
-    <div class="drop-card">
-      <span class="drop-tag">Merch</span>
-      <h3>Pressure Shirts</h3>
-      <p>Camisas minimalistas preto e dourado com frases icônicas do AURA XI.</p>
-    </div>
-    <div class="drop-card">
-      <span class="drop-tag">Comunidade</span>
-      <h3>Glory Room</h3>
-      <p>Comunidade exclusiva para drops antecipados, enquetes e previsões da Copa.</p>
-    </div>
-  </div>
-</section>
+  </header>
 
-<footer>
-  <span>AURA XI</span> — Football as Cinema. Where Pressure Becomes Legend.
-</footer>
+  <main>
+    <!-- JOGO -->
+    <section id="game" class="section">
+      <div class="section-head">
+        <p class="kicker">Mini jogo interativo</p>
+        <h2>Penalty Challenge 3D</h2>
+        <p>
+          Goleiro com reação inteligente, bola com curva, chute com potência,
+          mira por toque/clique e layout enquadrado para computador e celular.
+        </p>
+      </div>
 
-<div class="toast" id="toast"></div>
+      <div class="game-shell">
+        <!-- HUD -->
+        <div class="game-hud">
+          <div>
+            <small>Gols</small>
+            <strong id="hudScore">0</strong>
+          </div>
 
-<!-- Conexão com o arquivo JavaScript -->
-<script src="script.js"></script>
+          <div>
+            <small>Tentativas</small>
+            <strong id="hudAttempts">0</strong>
+          </div>
+
+          <div>
+            <small>Série</small>
+            <strong id="hudStreak">0</strong>
+          </div>
+
+          <div class="aura" id="hudAura">Rookie</div>
+
+          <div>
+            <small>Precisão</small>
+            <strong id="hudAccuracy">—</strong>
+          </div>
+        </div>
+
+        <!-- DIFICULDADE -->
+        <div class="diff-row" role="group" aria-label="Dificuldade">
+          <button class="diff-btn active" data-diff="base" type="button">
+            🟢 Base
+          </button>
+
+          <button class="diff-btn" data-diff="jogador" type="button">
+            🔵 Jogador
+          </button>
+
+          <button class="diff-btn" data-diff="craque" type="button">
+            🟠 Craque
+          </button>
+
+          <button class="diff-btn" data-diff="lenda" type="button">
+            🔴 Lenda
+          </button>
+        </div>
+
+        <div class="game-layout">
+          <!-- CAMPO -->
+          <div class="pitch-card">
+            <canvas id="pitchCanvas" aria-label="Campo do jogo de pênaltis"></canvas>
+            <div class="mobile-help">
+              Toque em uma região do gol para mirar.
+            </div>
+          </div>
+
+          <!-- PAINEL -->
+          <aside class="game-panel" aria-label="Controles do jogo">
+            <!-- JOGADOR -->
+            <div class="control-group">
+              <span class="panel-label">Jogador</span>
+
+              <div class="player-grid">
+                <button class="player-btn active" data-player="neymar" type="button">
+                  Neymar
+                  <span>Flair</span>
+                </button>
+
+                <button class="player-btn" data-player="cr7" type="button">
+                  CR7
+                  <span>Power</span>
+                </button>
+
+                <button class="player-btn" data-player="mbappe" type="button">
+                  Mbappé
+                  <span>Speed</span>
+                </button>
+
+                <button class="player-btn" data-player="vini" type="button">
+                  Vini Jr
+                  <span>Wild</span>
+                </button>
+
+                <button class="player-btn" data-player="yamal" type="button">
+                  Yamal
+                  <span>Ice</span>
+                </button>
+
+                <button class="player-btn" data-player="haaland" type="button">
+                  Haaland
+                  <span>Brute</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- PÉ -->
+            <div class="control-group">
+              <span class="panel-label">Pé dominante</span>
+
+              <div class="toggle-row">
+                <button class="toggle-btn active" data-foot="left" type="button">
+                  Esquerdo
+                </button>
+
+                <button class="toggle-btn" data-foot="right" type="button">
+                  Direito
+                </button>
+              </div>
+            </div>
+
+            <!-- MIRA -->
+            <div class="control-group">
+              <span class="panel-label">Mira</span>
+
+              <div class="aim-grid">
+                <button class="aim-btn" data-aim="tl" type="button">↖</button>
+                <button class="aim-btn" data-aim="tc" type="button">↑</button>
+                <button class="aim-btn" data-aim="tr" type="button">↗</button>
+
+                <button class="aim-btn" data-aim="ml" type="button">←</button>
+                <button class="aim-btn active" data-aim="mc" type="button">•</button>
+                <button class="aim-btn" data-aim="mr" type="button">→</button>
+
+                <button class="aim-btn" data-aim="bl" type="button">↙</button>
+                <button class="aim-btn" data-aim="bc" type="button">↓</button>
+                <button class="aim-btn" data-aim="br" type="button">↘</button>
+              </div>
+            </div>
+
+            <!-- POTÊNCIA -->
+            <div class="control-group">
+              <span class="panel-label">Potência</span>
+
+              <div class="power-track" id="powerTrack">
+                <div class="power-fill" id="powerFill"></div>
+              </div>
+
+              <div class="power-label">
+                <span>Suave</span>
+                <strong id="powerVal">72%</strong>
+                <span>Máx</span>
+              </div>
+            </div>
+
+            <!-- STATUS -->
+            <div class="streak-badge">
+              Série:
+              <strong id="streakBadge">0</strong>
+              · Melhor:
+              <strong id="bestStreak">0</strong>
+            </div>
+
+            <div class="result-msg" id="resultMsg">
+              Escolha jogador, pé, mira e potência. Depois chute.
+            </div>
+
+            <button class="shoot-btn" id="shootBtn" type="button">
+              CHUTAR
+            </button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- DROPS -->
+    <section id="drops" class="section">
+      <div class="section-head">
+        <p class="kicker">Monetização & Comunidade</p>
+        <h2>Collector Drops</h2>
+        <p>
+          Use esta área para produtos, comunidade, wallpapers, tabelas ou links de campanhas.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="drop-card">
+          <span>Digital</span>
+          <h3>Legacy Cards</h3>
+          <p>
+            Cards premium de jogadores, tabelas e wallpapers cinematográficos.
+          </p>
+        </article>
+
+        <article class="drop-card">
+          <span>Merch</span>
+          <h3>Pressure Shirts</h3>
+          <p>
+            Camisas minimalistas preto e dourado com frases do AURA XI.
+          </p>
+        </article>
+
+        <article class="drop-card">
+          <span>Comunidade</span>
+          <h3>Glory Room</h3>
+          <p>
+            Área exclusiva para enquetes, previsões, drops e conteúdo antecipado.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <span>AURA XI</span> — Football as Cinema. Where Pressure Becomes Legend.
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
 </body>
 </html>
